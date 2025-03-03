@@ -12,7 +12,7 @@ const AppLayout: React.FC = () => {
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Atypical Antipsychotics Reference</h1>
+              <h1 className="text-xl font-bold text-gray-900">Atypical Antipsychotics Reference built for WCCC Pharmacology</h1>
               <p className="text-sm text-gray-600">Evidence-based medication information for clinicians</p>
             </div>
             <div className="flex space-x-2">
@@ -59,7 +59,7 @@ const AppLayout: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
             <div>© {new Date().getFullYear()} Atypical Antipsychotics Reference App</div>
-            <div>Last updated: February 2025 | Disclaimer: For educational purposes only</div>
+            <div>Last updated: February 2025 |  Colby Stoker |  Disclaimer: For educational purposes only</div>
           </div>
         </div>
       </footer>

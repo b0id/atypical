@@ -8,8 +8,8 @@ const AboutPage: React.FC = () => {
       <div className="bg-white p-6 rounded-lg border border-gray-200 mb-6">
         <h2 className="text-lg font-medium text-gray-900 mb-4">Purpose</h2>
         <p className="text-gray-700 mb-3">
-          The Atypical Antipsychotics Reference is designed to provide clinicians with evidence-based, 
-          up-to-date information about atypical antipsychotic medications. This tool aims to support 
+          The Atypical Antipsychotics Reference is designed to provide students at WCCC with evidence-based, 
+          up-to-date information about atypical antipsychotic medications & to support 
           clinical decision-making by offering clear, concise, and practical information about these 
           medications.
         </p>
@@ -57,11 +57,11 @@ const AboutPage: React.FC = () => {
         <div className="space-y-4">
           <div>
             <h3 className="font-medium text-gray-800">Medical Content</h3>
-            <p className="text-gray-600">Board-certified psychiatrists and clinical pharmacists specializing in psychopharmacology</p>
+            <p className="text-gray-600">See References section</p>
           </div>
           <div>
             <h3 className="font-medium text-gray-800">Technical Development</h3>
-            <p className="text-gray-600">Software engineers and UX designers with healthcare information systems experience</p>
+            <p className="text-gray-600">Implemented by Colby Stoker</p>
           </div>
           <div>
             <h3 className="font-medium text-gray-800">Last Updated</h3>
