@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import MedicationHeader from '../components/medication/MedicationHeader';
-import TabNavigation from '../components/medication/TabNavigation';
-import MedicationTabContent from '../components/medication/MedicationTabContent';
-import { TabType } from '../components/medication/MedicationTab';
+import MedicationHeader from '../components/medications/MedicationHeader';
+import TabNavigation from '../components/medications/TabNavigation';
+import MedicationTabContent from '../components/medications/MedicationTabContent';
+import { TabType } from '../components/medications/MedicationTab';
 
 // This would normally be imported from a data service
 // For now, we'll use placeholder data
