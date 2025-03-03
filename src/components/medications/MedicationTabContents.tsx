@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabType } from './MedicationTab';
-
+import { medicationService } from '../../services/MedicationService';
 // Import all tab components
 import OverviewTab from './tabs/OverviewTab';
 import DosingTab from './tabs/DosingTab';

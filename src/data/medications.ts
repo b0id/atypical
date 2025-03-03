@@ -220,7 +220,102 @@ export const medications: Medication[] = [
         'QT interval prolongation at higher doses',
         'Sedation can be problematic for some patients'
       ]
-    }
+    },
+    // Comparison data
+    comparisonProperties: [
+      { id: 'efficacy_positive', name: 'Efficacy for Positive Symptoms' },
+      { id: 'efficacy_negative', name: 'Efficacy for Negative Symptoms' },
+      { id: 'weight_gain', name: 'Weight Gain Risk' },
+      { id: 'sedation', name: 'Sedation' },
+      { id: 'eps', name: 'Extrapyramidal Symptoms' },
+      { id: 'prolactin', name: 'Prolactin Elevation' },
+      { id: 'qt_prolongation', name: 'QT Prolongation' },
+      { id: 'metabolic', name: 'Metabolic Effects' },
+      { id: 'anticholinergic', name: 'Anticholinergic Effects' },
+      { id: 'cost', name: 'Cost' }
+    ],
+    comparisonMedications: [
+      {
+        id: 'risperidone',
+        name: 'Risperidone',
+        ratings: [
+          { propertyId: 'efficacy_positive', value: 4, notes: 'Highly effective' },
+          { propertyId: 'efficacy_negative', value: 3, notes: 'Moderately effective' },
+          { propertyId: 'weight_gain', value: 3, notes: 'Moderate risk' },
+          { propertyId: 'sedation', value: 2, notes: 'Low to moderate' },
+          { propertyId: 'eps', value: 4, notes: 'Higher risk at doses >6mg' },
+          { propertyId: 'prolactin', value: 5, notes: 'Significant elevation' },
+          { propertyId: 'qt_prolongation', value: 2, notes: 'Minimal' },
+          { propertyId: 'metabolic', value: 3, notes: 'Moderate risk' },
+          { propertyId: 'anticholinergic', value: 1, notes: 'Low' },
+          { propertyId: 'cost', value: 1, notes: 'Generic available' }
+        ]
+      },
+      {
+        id: 'olanzapine',
+        name: 'Olanzapine',
+        ratings: [
+          { propertyId: 'efficacy_positive', value: 5, notes: 'Highly effective' },
+          { propertyId: 'efficacy_negative', value: 4, notes: 'Good efficacy' },
+          { propertyId: 'weight_gain', value: 5, notes: 'High risk' },
+          { propertyId: 'sedation', value: 4, notes: 'Significant' },
+          { propertyId: 'eps', value: 2, notes: 'Lower risk' },
+          { propertyId: 'prolactin', value: 2, notes: 'Minimal elevation' },
+          { propertyId: 'qt_prolongation', value: 1, notes: 'Minimal' },
+          { propertyId: 'metabolic', value: 5, notes: 'High risk' },
+          { propertyId: 'anticholinergic', value: 4, notes: 'Significant' },
+          { propertyId: 'cost', value: 2, notes: 'Generic available' }
+        ]
+      },
+      {
+        id: 'quetiapine',
+        name: 'Quetiapine',
+        ratings: [
+          { propertyId: 'efficacy_positive', value: 3, notes: 'Moderate efficacy' },
+          { propertyId: 'efficacy_negative', value: 3, notes: 'Moderate efficacy' },
+          { propertyId: 'weight_gain', value: 3, notes: 'Moderate risk' },
+          { propertyId: 'sedation', value: 5, notes: 'High' },
+          { propertyId: 'eps', value: 1, notes: 'Low risk' },
+          { propertyId: 'prolactin', value: 1, notes: 'Minimal elevation' },
+          { propertyId: 'qt_prolongation', value: 3, notes: 'Moderate risk' },
+          { propertyId: 'metabolic', value: 3, notes: 'Moderate risk' },
+          { propertyId: 'anticholinergic', value: 2, notes: 'Low to moderate' },
+          { propertyId: 'cost', value: 1, notes: 'Generic available' }
+        ]
+      },
+      {
+        id: 'aripiprazole',
+        name: 'Aripiprazole',
+        ratings: [
+          { propertyId: 'efficacy_positive', value: 3, notes: 'Moderate efficacy' },
+          { propertyId: 'efficacy_negative', value: 3, notes: 'Moderate efficacy' },
+          { propertyId: 'weight_gain', value: 1, notes: 'Low risk' },
+          { propertyId: 'sedation', value: 2, notes: 'Low' },
+          { propertyId: 'eps', value: 3, notes: 'Moderate risk (akathisia)' },
+          { propertyId: 'prolactin', value: 1, notes: 'May decrease levels' },
+          { propertyId: 'qt_prolongation', value: 1, notes: 'Minimal' },
+          { propertyId: 'metabolic', value: 1, notes: 'Low risk' },
+          { propertyId: 'anticholinergic', value: 1, notes: 'Very low' },
+          { propertyId: 'cost', value: 3, notes: 'Higher cost' }
+        ]
+      },
+      {
+        id: 'ziprasidone',
+        name: 'Ziprasidone',
+        ratings: [
+          { propertyId: 'efficacy_positive', value: 3, notes: 'Moderate efficacy' },
+          { propertyId: 'efficacy_negative', value: 2, notes: 'Low to moderate' },
+          { propertyId: 'weight_gain', value: 1, notes: 'Low risk' },
+          { propertyId: 'sedation', value: 2, notes: 'Low to moderate' },
+          { propertyId: 'eps', value: 3, notes: 'Moderate risk' },
+          { propertyId: 'prolactin', value: 2, notes: 'Minimal elevation' },
+          { propertyId: 'qt_prolongation', value: 4, notes: 'Higher risk' },
+          { propertyId: 'metabolic', value: 1, notes: 'Low risk' },
+          { propertyId: 'anticholinergic', value: 1, notes: 'Very low' },
+          { propertyId: 'cost', value: 2, notes: 'Moderate' }
+        ]
+      }
+    ]
   },
   {
     id: 'olanzapine',

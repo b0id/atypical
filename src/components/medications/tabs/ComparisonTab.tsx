@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useMedication } from '../../../context/MedicationContext';
+import { medicationService } from '../../../services/MedicationService';
 
 // Define medication property types for comparison
 interface MedicationProperty {
@@ -34,14 +36,19 @@ const ComparisonTab: React.FC<ComparisonTabProps> = ({
   properties,
   strengthsWeaknesses
 }) => {
-  const [selectedMedications, setSelectedMedications] = useState<string[]>([
-    currentMedicationId,
-    // Add 2-3 default comparisons that make sense
-    ...medications
-      .filter(med => med.id !== currentMedicationId)
-      .slice(0, 3)
-      .map(med => med.id)
-  ]);
+  const { 
+    selectedMedicationsForComparison, 
+    addToComparison, 
+    removeFromComparison, 
+    clearComparison 
+  } = useMedication();
+
+  // Add the current medication to comparison when component mounts
+  useEffect(() => {
+    if (currentMedicationId && !selectedMedicationsForComparison.includes(currentMedicationId)) {
+      addToComparison(currentMedicationId);
+    }
+  }, [currentMedicationId, selectedMedicationsForComparison, addToComparison]);
 
   // Handle medication selection
   const toggleMedication = (medicationId: string) => {
@@ -50,11 +57,11 @@ const ComparisonTab: React.FC<ComparisonTabProps> = ({
       return;
     }
 
-    setSelectedMedications(prev => 
-      prev.includes(medicationId)
-        ? prev.filter(id => id !== medicationId)
-        : [...prev, medicationId]
-    );
+    if (selectedMedicationsForComparison.includes(medicationId)) {
+      removeFromComparison(medicationId);
+    } else {
+      addToComparison(medicationId);
+    }
   };
 
   // Get rating color based on value (1-5)
@@ -71,7 +78,7 @@ const ComparisonTab: React.FC<ComparisonTabProps> = ({
 
   // Filter visible medications
   const visibleMedications = medications.filter(med => 
-    selectedMedications.includes(med.id)
+    selectedMedicationsForComparison.includes(med.id)
   );
 
   // Get rating text
@@ -83,6 +90,13 @@ const ComparisonTab: React.FC<ComparisonTabProps> = ({
       case 4: return 'High';
       case 5: return 'Very high';
       default: return 'Unknown';
+    }
+  };
+
+  // Handle clear with confirmation
+  const handleClearComparison = () => {
+    if (window.confirm("Clear all medications from comparison except the current one?")) {
+      clearComparison();
     }
   };
 
@@ -99,7 +113,7 @@ const ComparisonTab: React.FC<ComparisonTabProps> = ({
                 key={med.id}
                 onClick={() => toggleMedication(med.id)}
                 className={`px-3 py-1.5 text-sm rounded-md ${
-                  selectedMedications.includes(med.id)
+                  selectedMedicationsForComparison.includes(med.id)
                     ? 'bg-blue-100 text-blue-800 border border-blue-200'
                     : 'bg-gray-100 text-gray-800 border border-gray-200'
                 } ${med.id === currentMedicationId ? 'font-bold ring-2 ring-blue-500 ring-offset-1' : ''}`}
@@ -108,6 +122,14 @@ const ComparisonTab: React.FC<ComparisonTabProps> = ({
                 {med.name}
               </button>
             ))}
+            {selectedMedicationsForComparison.length > 1 && (
+              <button 
+                onClick={handleClearComparison}
+                className="px-3 py-1.5 text-sm rounded-md bg-red-50 text-red-700 border border-red-200 hover:bg-red-100"
+              >
+                Clear Comparison
+              </button>
+            )}
           </div>
         </div>
         

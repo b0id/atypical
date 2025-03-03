@@ -7,6 +7,11 @@ interface MedicationContextType {
   medicationList: MedicationListItem[];
   allIndications: string[];
   currentMedication: Medication | null;
+  // Comparison functionality
+  selectedMedicationsForComparison: string[];
+  addToComparison: (id: string) => void;
+  removeFromComparison: (id: string) => void;
+  clearComparison: () => void;
   // Actions
   setCurrentMedicationId: (id: string) => void;
   searchMedications: (searchTerm: string) => void;
@@ -22,6 +27,7 @@ export const MedicationProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [currentMedication, setCurrentMedication] = useState<Medication | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedIndication, setSelectedIndication] = useState<string>('');
+  const [selectedMedicationsForComparison, setSelectedMedicationsForComparison] = useState<string[]>([]);
 
   // Initialize data on component mount
   useEffect(() => {
@@ -33,14 +39,41 @@ export const MedicationProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     const defaultMedication = medicationService.getMedicationById('risperidone');
     if (defaultMedication) {
       setCurrentMedication(defaultMedication);
+      // Initialize comparison with default medication
+      setSelectedMedicationsForComparison(['risperidone']);
     }
   }, []);
+
+  // Comparison functions
+  const addToComparison = (id: string) => {
+    if (!selectedMedicationsForComparison.includes(id)) {
+      setSelectedMedicationsForComparison([...selectedMedicationsForComparison, id]);
+    }
+  };
+
+  const removeFromComparison = (id: string) => {
+    setSelectedMedicationsForComparison(
+      selectedMedicationsForComparison.filter(medId => medId !== id)
+    );
+  };
+
+  const clearComparison = () => {
+    // Always keep current medication in comparison
+    setSelectedMedicationsForComparison(
+      currentMedication ? [currentMedication.id] : []
+    );
+  };
 
   // Set current medication by ID
   const setCurrentMedicationId = (id: string) => {
     const medication = medicationService.getMedicationById(id);
     if (medication) {
       setCurrentMedication(medication);
+      
+      // Make sure current medication is in comparison
+      if (!selectedMedicationsForComparison.includes(id)) {
+        addToComparison(id);
+      }
     }
   };
 
@@ -84,6 +117,10 @@ export const MedicationProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     medicationList,
     allIndications,
     currentMedication,
+    selectedMedicationsForComparison,
+    addToComparison,
+    removeFromComparison,
+    clearComparison,
     setCurrentMedicationId,
     searchMedications,
     filterByIndication

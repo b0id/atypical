@@ -19,7 +19,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, onTabChange })
 
   return (
     <div className="border-b border-gray-200">
-      <nav className="-mb-px flex space-x-8 overflow-x-auto">
+      <nav className="-mb-px flex space-x-2 md:space-x-8 overflow-x-auto pb-1 scrollbar-hide">
         {tabs.map(tab => (
           <MedicationTab
             key={tab.id}

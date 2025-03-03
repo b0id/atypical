@@ -40,14 +40,16 @@ const AppLayout: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <div className="flex flex-1">
+      <div className="flex flex-col md:flex-row flex-1">
         {/* Sidebar - only show for medication routes */}
         {location.pathname.includes('/medications') && (
-          <MedicationSidebar />
+          <div className="md:w-64 w-full bg-white border-b md:border-b-0 md:border-r border-gray-200 flex-shrink-0">
+            <MedicationSidebar />
+          </div>
         )}
 
         {/* Content */}
-        <div className="flex-1 overflow-auto p-6">
+        <div className="flex-1 overflow-auto p-4 md:p-6">
           <Outlet />
         </div>
       </div>
