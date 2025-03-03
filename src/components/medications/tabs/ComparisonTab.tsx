@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMedication } from '../../../context/MedicationContext';
-import { medicationService } from '../../../services/MedicationService';
+
 
 // Define medication property types for comparison
 interface MedicationProperty {
