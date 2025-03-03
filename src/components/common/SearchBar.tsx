@@ -16,7 +16,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   debounceTime = 300 // milliseconds
 }) => {
   const [searchTerm, setSearchTerm] = useState(initialValue);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // Handle input change with debounce
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

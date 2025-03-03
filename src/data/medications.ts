@@ -1069,7 +1069,7 @@ export const medications: Medication[] = [
       {
         drug: 'Drugs that prolong the QT interval',
         effect: 'Additive risk of arrhythmias',
-        severity: 'severe',
+        severity: 'major' as const, // or 'moderate' or 'minor'
         mechanism: 'QT prolongation',
         recommendation: 'Avoid co-administration when possible'
       }
