@@ -40,7 +40,7 @@ const ReferencesPage: React.FC = () => {
             </svg>
             <div>
               <p className="font-medium text-gray-800">
-                <a href="https://www.wfsbp.org/educational-activities/wfsbp-guidelines/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
+                <a href="https://www.wfsbp.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
                   World Federation of Societies of Biological Psychiatry (WFSBP)
                 </a>
               </p>
